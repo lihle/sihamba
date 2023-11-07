@@ -2,7 +2,7 @@ package types
 
 // Device: class defining device info
 type Device struct {
-	Id           string
+	DeviceId     string
 	DeviceType   string
 	DeviceModel  string
 	DeviceSerial string
@@ -11,11 +11,27 @@ type Device struct {
 	DeviceDate   string
 }
 
-//DeviceSummary : class with device summary
+// DeviceSummary : class with device summary
 type DeviceSummary struct {
 	D                 Device
 	DeviceTotal       int
 	DeviceAvailable   int
 	DeviceAssigned    int
 	DeviceUnavailable int
+}
+
+// DeviceStates: class
+type DeviceStates struct {
+	DeviceStateId string
+	DeviceState   string
+}
+
+// DeviceLoan: class
+type DeviceLoan struct {
+	DeviceLoanId string
+	D            Device
+	E            Employee
+	S            DeviceStates
+	LoanoutDate  string
+	LoaninDate   string
 }

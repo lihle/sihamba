@@ -31,6 +31,17 @@ func main() {
 	r.HandleFunc("/library", handler.ViewPublicLibrary)
 	r.HandleFunc("/attendances", handler.ViewPublicAttendances)
 
+	// Private
+	r.HandleFunc("/login_page/", handler.ViewLogin)
+	r.HandleFunc("/verify", handler.LoginVerification)
+	r.HandleFunc("/Admin_page", handler.ViewAdminMenu)
+	r.HandleFunc("/logout_func", handler.LogoutFunc)
+
+	// Admin options
+	r.HandleFunc("/Admin_page/add_program", handler.ViewProgram)
+	r.HandleFunc("/Admin_page/add_login", handler.ViewAssignLogin)
+	r.HandleFunc("/Admin_page/add_term", handler.ViewAddTerm)
+
 	//Static files
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	port := ":3001"
